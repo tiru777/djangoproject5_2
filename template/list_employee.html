@@ -18,7 +18,7 @@
           <td>{{i.second_name}}</td>
         <td><button><a href="{% url 'detail' i.id %}">detail</a></button></td>
         <td><button><a href="{% url 'update' i.id %}">update</a></button></td>
-
+        <td><button><a href="{% url 'delete' i.id %}">delete</a></button></td>
 
         {% else %}
           <td>"data not there please"</td>

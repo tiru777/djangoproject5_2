@@ -33,3 +33,8 @@ def update_employee(requests,id):
 
     return render(requests,"update_employee.html",context={"form":form})
 
+def delete_employee(requests,id):
+    data = Employee.objects.get(id=id) # we can get specific data of object
+    data.delete()
+    return HttpResponseRedirect("/list")
+
