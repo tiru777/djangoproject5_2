@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+          <h1>First Name {{data.first_name | upper}}</h1>
+          <h2>Last Name {{data.second_name}}</h2>
+          <h2>EMail {{data.email | lower}} </h2>
+          <h3>Address {{data.address | upper}}</h3>
+          <h4>DOB {{data.dob | date}}</h4>
+          <h4>Age{{data.age}}</h4>
+          <h4>Photo {{data.photo}}</h4>
+
+
+{% endblock %}
+
