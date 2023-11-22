@@ -200,23 +200,33 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="{% url 'home' %}">Home</a>
+      {% if user.is_authenticated %}
+        <a class="navbar-brand" href="{% url 'home' %}">Home</a>
+      {% endif %}
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="{% url 'list' %}">List</a></li>
-        <li><a href="{% url 'create' %}">Create</a></li>
-        <li><a href="#portfolio">Update</a></li>
-        <li><a href="#pricing">PRICING</a></li>
-        <li><a href="#contact">CONTACT</a></li>
+        {% if user.is_authenticated %}
+          <li><a href="{% url 'list' %}">List</a></li>
+          <li><a href="{% url 'create' %}">Create</a></li>
+          <li><a href="{% url 'logout' %}">Logout</a></li>
+        {% else %}
+          <li><a href="{% url 'login' %}">Login</a></li>
+          <li><a href="{% url 'signup' %}">Signup</a></li>
+
+        {% endif %}
       </ul>
     </div>
   </div>
 </nav>
 
 <div class="jumbotron text-center">
-  <h1>Django Website CRUD & ORM</h1>
-  <p>Template tags is used to display data</p>
+  {% if user.is_authenticated %}
+    <h1>Django Website CRUD & ORM & Authentication</h1>
+    <p>you have successfully logged</p>
+  {% else %}
+    <h1>Please login Or Signup</h1>
+  {% endif %}
 
 </div>
 

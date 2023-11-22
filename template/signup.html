@@ -1,0 +1,16 @@
+{% extends 'index.html' %}
+{% block content %}
+
+<h1> Please Signup here</h1>
+<form method="POST">
+
+  {% csrf_token %}
+  {{form.as_p}}
+
+  <button type="submit" class="btn btn-success btn-lg">signup me</button>
+
+
+
+</form>
+
+{% endblock %}

@@ -1,9 +1,10 @@
 {% extends 'index.html' %}
 {% block content %}
 
-    <h1> Welcome</h1>
-    <h2>
-        Welcome to the Django course CRUD & ORM
-    </h2>
+  {% if user.is_authenticated %}
+    <h1>Welcome you have successfully logged</h1>
+  {% else %}
+    <h1>Please login or Signup</h1>
+  {% endif %}
 
 {% endblock %}
